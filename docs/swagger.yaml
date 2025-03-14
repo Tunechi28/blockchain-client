@@ -1,0 +1,202 @@
+definitions:
+  handlers.BlockDetails:
+    properties:
+      difficulty:
+        description: |-
+          The block difficulty.
+          example: 0x7
+        example: "0x7"
+        type: string
+      extraData:
+        description: |-
+          Extra data associated with the block.
+          example: 0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00
+        example: 0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00
+        type: string
+      gasLimit:
+        description: |-
+          The gas limit for the block.
+          example: 0x992f4a
+        example: "0x992f4a"
+        type: string
+      gasUsed:
+        description: |-
+          The gas used in the block.
+          example: 0x0
+        example: "0x0"
+        type: string
+      hash:
+        description: |-
+          The hash of the block.
+          example: 0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc
+        example: 0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc
+        type: string
+      logsBloom:
+        description: |-
+          The bloom filter for the block logs.
+          example: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        example: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        type: string
+      miner:
+        description: |-
+          The address of the miner who mined the block.
+          example: 0x0000000000000000000000000000000000000000
+        example: "0x0000000000000000000000000000000000000000"
+        type: string
+      mixHash:
+        description: |-
+          The mix hash used in the proof-of-work algorithm.
+          example: 0x0000000000000000000000000000000000000000000000000000000000000000
+        example: "0x0000000000000000000000000000000000000000000000000000000000000000"
+        type: string
+      nonce:
+        description: |-
+          The nonce used in the mining process.
+          example: 0x0000000000000000
+        example: "0x0000000000000000"
+        type: string
+      number:
+        description: |-
+          The block number.
+          example: 0x4
+        example: "0x4"
+        type: string
+      parentHash:
+        description: |-
+          The hash of the parent block.
+          example: 0x449afa8d9ea4c39c65a508414aa1b1110a225e2d8d4a86d40e5f8ae23103186a
+        example: 0x449afa8d9ea4c39c65a508414aa1b1110a225e2d8d4a86d40e5f8ae23103186a
+        type: string
+      receiptsRoot:
+        description: |-
+          The root hash of the receipts trie.
+          example: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
+        example: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
+        type: string
+      sha3Uncles:
+        description: |-
+          The SHA3 hash of the uncles data.
+          example: 0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347
+        example: 0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347
+        type: string
+      size:
+        description: |-
+          The size of the block in bytes.
+          example: 0x25e
+        example: "0x25e"
+        type: string
+      stateRoot:
+        description: |-
+          The root hash of the state trie.
+          example: 0x654f28d19b44239d1012f27038f1f71b3d4465dc415a382fb2b7009cba1527c8
+        example: 0x654f28d19b44239d1012f27038f1f71b3d4465dc415a382fb2b7009cba1527c8
+        type: string
+      timestamp:
+        description: |-
+          The timestamp of the block.
+          example: 0x5ed28a0e
+        example: "0x5ed28a0e"
+        type: string
+      totalDifficulty:
+        description: |-
+          The total difficulty of the chain until this block.
+          example: 0x1d
+        example: "0x1d"
+        type: string
+      transactions:
+        description: |-
+          List of transactions included in the block.
+          example: []
+        example:
+        - '[]'
+        items:
+          type: string
+        type: array
+      transactionsRoot:
+        description: |-
+          The root hash of the transactions trie.
+          example: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
+        example: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
+        type: string
+      uncles:
+        description: |-
+          List of uncle hashes.
+          example: []
+        example:
+        - '[]'
+        items:
+          type: string
+        type: array
+    type: object
+  handlers.BlockNumberResponse:
+    properties:
+      blockNumber:
+        description: |-
+          The latest block number in hexadecimal format.
+          example: 0x41ce50d
+        type: string
+    type: object
+  handlers.BlockResponse:
+    properties:
+      block:
+        allOf:
+        - $ref: '#/definitions/handlers.BlockDetails'
+        description: Detailed block information.
+    type: object
+  handlers.ErrorResponse:
+    properties:
+      error:
+        description: |-
+          Error message describing the issue.
+          example: HTTP request failed: Post "https://polygon-rpc.com/": dial tcp: lookup polygon-rpc.com: no such host
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /block/{number}:
+    get:
+      description: Retrieves block details by block number.
+      parameters:
+      - description: Block Number
+        in: path
+        name: number
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'Example: {\"block\": {\"difficulty\": \"0x7\", \"extraData\":
+            \"0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00\",
+            \"gasLimit\": \"0x992f4a\", \"gasUsed\": \"0x0\", \"hash\": \"0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc\",
+            \"number\": \"0x4\"}}'
+          schema:
+            $ref: '#/definitions/handlers.BlockResponse'
+        "500":
+          description: 'Example: {\"error\": \"HTTP request failed: Post \\\"https://polygon-rpc.com/\\\":
+            dial tcp: lookup polygon-rpc.com: no such host\"}'
+          schema:
+            $ref: '#/definitions/handlers.ErrorResponse'
+      summary: Get Block by Number
+      tags:
+      - Blockchain
+  /block/number:
+    get:
+      description: Retrieves the latest block number from the Polygon RPC endpoint.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'Example: {\"blockNumber\": \"0x41ce50d\"}'
+          schema:
+            $ref: '#/definitions/handlers.BlockNumberResponse'
+        "500":
+          description: 'Example: {\"error\": \"HTTP request failed: Post \\\"https://polygon-rpc.com/\\\":
+            dial tcp: lookup polygon-rpc.com: no such host\"}'
+          schema:
+            $ref: '#/definitions/handlers.ErrorResponse'
+      summary: Get Latest Block Number
+      tags:
+      - Blockchain
+swagger: "2.0"

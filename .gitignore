@@ -1,0 +1,8 @@
+# Local .terraform directories
+.DS_Store
+.terraform/
+*tfstate
+.empty
+.DS_Store
+*.tfstate.*
+.terraform.lock.hcl

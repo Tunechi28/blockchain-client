@@ -1,0 +1,217 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/block/number": {
+            "get": {
+                "description": "Retrieves the latest block number from the Polygon RPC endpoint.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blockchain"
+                ],
+                "summary": "Get Latest Block Number",
+                "responses": {
+                    "200": {
+                        "description": "Example: {\\\"blockNumber\\\": \\\"0x41ce50d\\\"}",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.BlockNumberResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Example: {\\\"error\\\": \\\"HTTP request failed: Post \\\\\\\"https://polygon-rpc.com/\\\\\\\": dial tcp: lookup polygon-rpc.com: no such host\\\"}",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/block/{number}": {
+            "get": {
+                "description": "Retrieves block details by block number.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Blockchain"
+                ],
+                "summary": "Get Block by Number",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Block Number",
+                        "name": "number",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Example: {\\\"block\\\": {\\\"difficulty\\\": \\\"0x7\\\", \\\"extraData\\\": \\\"0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00\\\", \\\"gasLimit\\\": \\\"0x992f4a\\\", \\\"gasUsed\\\": \\\"0x0\\\", \\\"hash\\\": \\\"0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc\\\", \\\"number\\\": \\\"0x4\\\"}}",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.BlockResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Example: {\\\"error\\\": \\\"HTTP request failed: Post \\\\\\\"https://polygon-rpc.com/\\\\\\\": dial tcp: lookup polygon-rpc.com: no such host\\\"}",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "handlers.BlockDetails": {
+            "type": "object",
+            "properties": {
+                "difficulty": {
+                    "description": "The block difficulty.\nexample: 0x7",
+                    "type": "string",
+                    "example": "0x7"
+                },
+                "extraData": {
+                    "description": "Extra data associated with the block.\nexample: 0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00",
+                    "type": "string",
+                    "example": "0xd58301090083626f7286676f312e3133856c696e75780000000000000000000020e630202e8ff344c8b9504088f0d59c81fad4fecf54e352319be3085fe5bf6d12e11a34625810f586e80b8388e131b04f4fb964b777d757cba48851880bc1bf00"
+                },
+                "gasLimit": {
+                    "description": "The gas limit for the block.\nexample: 0x992f4a",
+                    "type": "string",
+                    "example": "0x992f4a"
+                },
+                "gasUsed": {
+                    "description": "The gas used in the block.\nexample: 0x0",
+                    "type": "string",
+                    "example": "0x0"
+                },
+                "hash": {
+                    "description": "The hash of the block.\nexample: 0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc",
+                    "type": "string",
+                    "example": "0x30b128813e745454f46978d5073cd9e9474ae78df969ae4928992470fa9379dc"
+                },
+                "logsBloom": {
+                    "description": "The bloom filter for the block logs.\nexample: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                    "type": "string",
+                    "example": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+                },
+                "miner": {
+                    "description": "The address of the miner who mined the block.\nexample: 0x0000000000000000000000000000000000000000",
+                    "type": "string",
+                    "example": "0x0000000000000000000000000000000000000000"
+                },
+                "mixHash": {
+                    "description": "The mix hash used in the proof-of-work algorithm.\nexample: 0x0000000000000000000000000000000000000000000000000000000000000000",
+                    "type": "string",
+                    "example": "0x0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                "nonce": {
+                    "description": "The nonce used in the mining process.\nexample: 0x0000000000000000",
+                    "type": "string",
+                    "example": "0x0000000000000000"
+                },
+                "number": {
+                    "description": "The block number.\nexample: 0x4",
+                    "type": "string",
+                    "example": "0x4"
+                },
+                "parentHash": {
+                    "description": "The hash of the parent block.\nexample: 0x449afa8d9ea4c39c65a508414aa1b1110a225e2d8d4a86d40e5f8ae23103186a",
+                    "type": "string",
+                    "example": "0x449afa8d9ea4c39c65a508414aa1b1110a225e2d8d4a86d40e5f8ae23103186a"
+                },
+                "receiptsRoot": {
+                    "description": "The root hash of the receipts trie.\nexample: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+                    "type": "string",
+                    "example": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+                },
+                "sha3Uncles": {
+                    "description": "The SHA3 hash of the uncles data.\nexample: 0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+                    "type": "string",
+                    "example": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"
+                },
+                "size": {
+                    "description": "The size of the block in bytes.\nexample: 0x25e",
+                    "type": "string",
+                    "example": "0x25e"
+                },
+                "stateRoot": {
+                    "description": "The root hash of the state trie.\nexample: 0x654f28d19b44239d1012f27038f1f71b3d4465dc415a382fb2b7009cba1527c8",
+                    "type": "string",
+                    "example": "0x654f28d19b44239d1012f27038f1f71b3d4465dc415a382fb2b7009cba1527c8"
+                },
+                "timestamp": {
+                    "description": "The timestamp of the block.\nexample: 0x5ed28a0e",
+                    "type": "string",
+                    "example": "0x5ed28a0e"
+                },
+                "totalDifficulty": {
+                    "description": "The total difficulty of the chain until this block.\nexample: 0x1d",
+                    "type": "string",
+                    "example": "0x1d"
+                },
+                "transactions": {
+                    "description": "List of transactions included in the block.\nexample: []",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "[]"
+                    ]
+                },
+                "transactionsRoot": {
+                    "description": "The root hash of the transactions trie.\nexample: 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+                    "type": "string",
+                    "example": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"
+                },
+                "uncles": {
+                    "description": "List of uncle hashes.\nexample: []",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "[]"
+                    ]
+                }
+            }
+        },
+        "handlers.BlockNumberResponse": {
+            "type": "object",
+            "properties": {
+                "blockNumber": {
+                    "description": "The latest block number in hexadecimal format.\nexample: 0x41ce50d",
+                    "type": "string"
+                }
+            }
+        },
+        "handlers.BlockResponse": {
+            "type": "object",
+            "properties": {
+                "block": {
+                    "description": "Detailed block information.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/handlers.BlockDetails"
+                        }
+                    ]
+                }
+            }
+        },
+        "handlers.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "description": "Error message describing the issue.\nexample: HTTP request failed: Post \"https://polygon-rpc.com/\": dial tcp: lookup polygon-rpc.com: no such host",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
