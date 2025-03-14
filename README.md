@@ -51,7 +51,7 @@ This project is a simple blockchain client implemented in Go. It interacts with 
 
 | Endpoint                     | Method | Description               |
 |------------------------------|--------|---------------------------|
-| `/api/block/latest`          | GET    | Fetch latest block number |
+| `/api/block/number`          | GET    | Fetch latest block number |
 | `/api/block/:blockNumber`    | GET    | Fetch block details       |
 
 
